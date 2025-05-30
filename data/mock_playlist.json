@@ -1,0 +1,18 @@
+{
+  "items": [
+    {
+      "id": "playlist_1",
+      "name": "Moja Energetyczna Playlista (Demo)",
+      "images": [{ "url": "https://via.placeholder.com/60/FF5733/FFFFFF?Text=P1" }],
+      "tracks_data_file": "mock_tracks_playlist_1.json",
+      "audio_features_file": "mock_audio_features_playlist_1.json"
+    },
+    {
+      "id": "playlist_2",
+      "name": "Relaksujące Kawałki (Demo)",
+      "images": [{ "url": "https://via.placeholder.com/60/33FF57/FFFFFF?Text=P2" }],
+      "tracks_data_file": "mock_tracks_playlist_2.json",
+      "audio_features_file": "mock_audio_features_playlist_2.json"
+    }
+  ]
+}

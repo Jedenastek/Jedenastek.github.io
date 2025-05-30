@@ -1,0 +1,6 @@
+{
+  "audio_features": [
+    { "id": "track_2_X", "energy": 0.2, "valence": 0.4, "danceability": 0.3 },
+    { "id": "track_2_Y", "energy": 0.1, "valence": 0.5, "danceability": 0.2 }
+  ]
+}

@@ -1,0 +1,120 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #242521;
+    color: #ffffff;
+}
+
+header {
+    background-color: #14913f; /* Kolor Spotify */
+    color: rgb(0, 0, 0);
+    padding: 1em;
+    text-align: center;
+}
+
+#auth-section {
+    margin-top: 10px;
+}
+
+main {
+    padding: 1em;
+    max-width: 900px;
+    margin: auto;
+}
+
+section {
+    background-color: rgb(63, 63, 63);
+    margin-bottom: 1.5em;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#playlistsList li, #tracksList li {
+    padding: 0.8em;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+#playlistsList li:hover, #tracksList li:hover {
+    background-color: #e9e9e9;
+}
+#playlistsList li img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+#tracksList li .mood-indicator {
+    font-size: 0.8em;
+    padding: 2px 6px;
+    border-radius: 10px;
+    margin-left: auto; /* Wyrównaj do prawej */
+    color: white;
+}
+.mood-energetic { background-color: #FF5733; }
+.mood-chill { background-color: #33A7FF; }
+.mood-positive { background-color: #FFC300; color: #333 !important; } /* Ważne dla czytelności na żółtym */
+.mood-neutral { background-color: #808080; }
+
+
+#moodFilters button {
+    margin: 0 5px 10px 0;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    border-radius: 4px;
+}
+#moodFilters button:hover, #moodFilters button.active {
+    background-color: #1DB954;
+    color: white;
+    border-color: #1DB954;
+}
+
+/* Responsywność */
+@media (max-width: 600px) {
+    main {
+        padding: 0.5em;
+    }
+    header h1 {
+        font-size: 1.5em;
+    }
+}
+
+/* Formularz */
+#exampleForm label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+#exampleForm input[type="text"], #exampleForm select {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: calc(100% - 18px); /* Uwzględnienie paddingu */
+}
+#exampleForm button {
+    padding: 10px 15px;
+    background-color: #1DB954;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#exampleForm button:hover {
+    background-color: #1AA34A;
+}
+#formOutput {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #e9f5e9;
+    border: 1px solid #d4ead4;
+    border-radius: 4px;
+}

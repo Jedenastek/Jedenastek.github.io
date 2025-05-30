@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Mood Sorter (Demo)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Spotify Mood Sorter</h1>
+        <div id="auth-section">
+            <button id="loginButton" style="display: none;">Zaloguj przez Spotify</button>
+            <p id="demoModeNotice" style="display: none;">Działasz w trybie demonstracyjnym.</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="playlistsSection">
+            <h2>Twoje Playlisty (Demo)</h2>
+            <ul id="playlistsList">
+                <!-- Playlisty będą tutaj wstawiane przez JS -->
+            </ul>
+        </section>
+
+        <section id="tracksSection" style="display: none;">
+            <h2 id="selectedPlaylistName">Utwory z playlisty</h2>
+            <div id="moodFilters">
+                Filtruj wg nastroju:
+                <button data-mood="all">Wszystkie</button>
+                <button data-mood="energetic">Energetyczne</button>
+                <button data-mood="chill">Relaksujące</button>
+                <button data-mood="positive">Pozytywne</button>
+            </div>
+            <ul id="tracksList">
+                <!-- Utwory będą tutaj wstawiane przez JS -->
+            </ul>
+        </section>
+
+        <!-- Prosty formularz spełniający wymaganie -->
+        <section id="settingsFormSection" style="display: none;">
+            <h2>Ustawienia (Przykład Formularza)</h2>
+            <form id="exampleForm">
+                <label for="userName">Nazwa użytkownika (demo):</label>
+                <input type="text" id="userName" name="userName" value="Użytkownik Demo"><br><br>
+
+                <p>Preferowany nastrój początkowy:</p>
+                <input type="radio" id="moodEnergetic" name="defaultMood" value="energetic" checked>
+                <label for="moodEnergetic">Energetyczny</label><br>
+                <input type="radio" id="moodChill" name="defaultMood" value="chill">
+                <label for="moodChill">Relaksujący</label><br><br>
+
+                <label for="notificationFrequency">Częstotliwość powiadomień:</label>
+                <select id="notificationFrequency" name="notificationFrequency">
+                    <option value="daily">Codziennie</option>
+                    <option value="weekly">Co tydzień</option>
+                    <option value="never">Nigdy</option>
+                </select><br><br>
+
+                <input type="checkbox" id="saveSettings" name="saveSettings" checked>
+                <label for="saveSettings">Zapisz ustawienia lokalnie</label><br><br>
+
+                <button type="button" id="saveFormButton">Zapisz Ustawienia (Demo)</button>
+            </form>
+            <div id="formOutput"></div>
+        </section>
+
+         <!-- Sekcja do wczytania treści z pliku -->
+        <section id="aboutAppSection">
+            <h2>O Aplikacji</h2>
+            <button id="loadAboutButton">Pokaż informacje o aplikacji</button>
+            <div id="aboutContent" style="border: 1px solid #eee; padding: 10px; margin-top: 10px; display: none;">
+                <!-- Treść z about.html będzie tutaj -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2023 Twój Projekt</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
