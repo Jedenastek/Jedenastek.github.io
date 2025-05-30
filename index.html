@@ -1,82 +1,86 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" class="h-100"></html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotify Mood Sorter (Demo)</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      .cover-container {
+        max-width: 42em;
+      }
+      .nav-masthead .nav-link {
+        color: rgba(255, 255, 255, .5);
+        border-bottom: .25rem solid transparent;
+      }
+      .nav-masthead .nav-link:hover,
+      .nav-masthead .nav-link:focus {
+        border-bottom-color: rgba(255, 255, 255, .25);
+      }
+      .nav-masthead .nav-link + .nav-link {
+        margin-left: 1rem;
+      }
+      .nav-masthead .active {
+        color: #fff;
+        border-bottom-color: #fff;
+      }
+    </style>
 </head>
-<body>
-    <header>
-        <h1>Spotify Mood Sorter</h1>
-        <div id="auth-section">
-            <button id="loginButton" style="display: none;">Zaloguj przez Spotify</button>
-            <p id="demoModeNotice" style="display: none;">Działasz w trybie demonstracyjnym.</p>
-        </div>
-    </header>
-
-    <main>
-        <section id="playlistsSection">
-            <h2>Twoje Playlisty (Demo)</h2>
-            <ul id="playlistsList">
-                <!-- Playlisty będą tutaj wstawiane przez JS -->
-            </ul>
-        </section>
-
-        <section id="tracksSection" style="display: none;">
-            <h2 id="selectedPlaylistName">Utwory z playlisty</h2>
-            <div id="moodFilters">
-                Filtruj wg nastroju:
-                <button data-mood="all">Wszystkie</button>
-                <button data-mood="energetic">Energetyczne</button>
-                <button data-mood="chill">Relaksujące</button>
-                <button data-mood="positive">Pozytywne</button>
+<body class="d-flex h-100 text-center text-bg-dark">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="mb-auto">
+            <div>
+                <h3 class="float-md-start mb-0">Spotify Mood Sorter</h3>
+                <nav class="nav nav-masthead justify-content-center float-md-end">
+                    <button id="loginButton" class="nav-link fw-bold py-1 px-0" style="display: none;">Zaloguj przez Spotify</button>
+                    <p id="demoModeNotice" class="nav-link" style="display: none;">Działasz w trybie demonstracyjnym.</p>
+                </nav>
             </div>
-            <ul id="tracksList">
-                <!-- Utwory będą tutaj wstawiane przez JS -->
-            </ul>
-        </section>
+        </header>
 
-        <!-- Prosty formularz spełniający wymaganie -->
-        <section id="settingsFormSection" style="display: none;">
-            <h2>Ustawienia (Przykład Formularza)</h2>
-            <form id="exampleForm">
-                <label for="userName">Nazwa użytkownika (demo):</label>
-                <input type="text" id="userName" name="userName" value="Użytkownik Demo"><br><br>
+        <main class="px-3">
+            <section id="playlistsSection">
+                <h2>Twoje Playlisty (Demo)</h2>
+                <ul id="playlistsList" class="list-unstyled">
+                    <!-- Playlisty będą tutaj wstawiane przez JS -->
+                </ul>
+            </section>
 
-                <p>Preferowany nastrój początkowy:</p>
-                <input type="radio" id="moodEnergetic" name="defaultMood" value="energetic" checked>
-                <label for="moodEnergetic">Energetyczny</label><br>
-                <input type="radio" id="moodChill" name="defaultMood" value="chill">
-                <label for="moodChill">Relaksujący</label><br><br>
+            <section id="tracksSection" style="display: none;">
+                <h2 id="selectedPlaylistName">Utwory z playlisty</h2>
+                <div id="moodFilters" class="btn-group mb-3">
+                    <button data-mood="all" class="btn btn-outline-light">Wszystkie</button>
+                    <button data-mood="energetic" class="btn btn-outline-light">Energetyczne</button>
+                    <button data-mood="chill" class="btn btn-outline-light">Relaksujące</button>
+                    <button data-mood="positive" class="btn btn-outline-light">Pozytywne</button>
+                </div>
+                <ul id="tracksList" class="list-unstyled">
+                    <!-- Utwory będą tutaj wstawiane przez JS -->
+                </ul>
+            </section>
 
-                <label for="notificationFrequency">Częstotliwość powiadomień:</label>
-                <select id="notificationFrequency" name="notificationFrequency">
-                    <option value="daily">Codziennie</option>
-                    <option value="weekly">Co tydzień</option>
-                    <option value="never">Nigdy</option>
-                </select><br><br>
+            <section id="settingsFormSection" class="text-start" style="display: none;">
+                <h2>Ustawienia</h2>
+                <form id="exampleForm" class="form">
+                    <div class="mb-3">
+                        <label for="userName" class="form-label">Nazwa użytkownika (demo):</label>
+                        <input type="text" class="form-control" id="userName" name="userName" value="Użytkownik Demo">
+                    </div>
 
-                <input type="checkbox" id="saveSettings" name="saveSettings" checked>
-                <label for="saveSettings">Zapisz ustawienia lokalnie</label><br><br>
+                    <div class="mb-3"></div>
+                        <p>Preferowany nastrój początkowy:</p>
+                        <div class="form-check"></div>
+                            <input type="radio" class="form-check-input" id="moodEnergetic" name="defaultMood" value="energetic" checked>
+                            <label class="form-check-label" for="moodEnergetic">Energetyczny</label>
+                        </div>
+                        <div class="form-check"></div>
+                            <input type="radio" class="form-check-input" id="moodChill" name="defaultMood" value="chill">
+                            <label class="form-check-label" for="moodChill">Relaksujący</label>
+                        </div>
+                    </div>
 
-                <button type="button" id="saveFormButton">Zapisz Ustawienia (Demo)</button>
-            </form>
-            <div id="formOutput"></div>
-        </section>
-
-         <!-- Sekcja do wczytania treści z pliku -->
-        <section id="aboutAppSection">
-            <h2>O Aplikacji</h2>
-            <button id="loadAboutButton">Pokaż informacje o aplikacji</button>
-            <div id="aboutContent" style="border: 1px solid #eee; padding: 10px; margin-top: 10px; display: none;">
-                <!-- Treść z about.html będzie tutaj -->
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>© 2023 Twój Projekt</p>
+                    <div class="mb-3">
     </footer>
 
     <script src="app.js"></script>
