@@ -1,0 +1,7 @@
+{
+  "items": [
+    { "track": { "id": "track_1_A", "name": "Szybki Rytm (Demo)", "artists": [{ "name": "Energiczny Zespół" }] } },
+    { "track": { "id": "track_1_B", "name": "Mocny Beat (Demo)", "artists": [{ "name": "DJ Power" }] } },
+    { "track": { "id": "track_1_C", "name": "Poranna Kawa (Demo)", "artists": [{ "name": "Wokalistka Funky" }] } }
+  ]
+}

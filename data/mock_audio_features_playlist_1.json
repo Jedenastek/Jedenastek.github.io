@@ -1,0 +1,49 @@
+{
+  "audio_features": [
+    {
+      "id": "track_1_A",
+      "danceability": 0.85,
+      "energy": 0.92,
+      "key": 5,
+      "loudness": -4.5,
+      "mode": 1,
+      "speechiness": 0.08,
+      "acousticness": 0.15,
+      "instrumentalness": 0.02,
+      "liveness": 0.18,
+      "valence": 0.75,
+      "tempo": 128.5,
+      "duration_ms": 198000
+    },
+    {
+      "id": "track_1_B",
+      "danceability": 0.88,
+      "energy": 0.95,
+      "key": 8,
+      "loudness": -3.8,
+      "mode": 1,
+      "speechiness": 0.12,
+      "acousticness": 0.08,
+      "instrumentalness": 0.45,
+      "liveness": 0.22,
+      "valence": 0.82,
+      "tempo": 135.0,
+      "duration_ms": 185000
+    },
+    {
+      "id": "track_1_C",
+      "danceability": 0.72,
+      "energy": 0.65,
+      "key": 3,
+      "loudness": -7.2,
+      "mode": 0,
+      "speechiness": 0.15,
+      "acousticness": 0.35,
+      "instrumentalness": 0.08,
+      "liveness": 0.12,
+      "valence": 0.68,
+      "tempo": 110.0,
+      "duration_ms": 210000
+    }
+  ]
+}

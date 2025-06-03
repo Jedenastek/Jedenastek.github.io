@@ -1,0 +1,32 @@
+{
+  "items": [
+    {
+      "id": "playlist_1",
+      "name": "Moja Energetyczna Playlista (Demo)",
+      "images": [{ "url": "data/mock_cover_playlist_1.jpeg" }],
+      "tracks_data_file": "mock_tracks_playlist_1.json",
+      "audio_features_file": "mock_audio_features_playlist_1.json"
+    },
+    {
+      "id": "playlist_2",
+      "name": "Radosne Kawałki (Demo)",
+      "images": [{ "url": "data/mock_cover_playlist_2.jpeg" }],
+      "tracks_data_file": "mock_tracks_playlist_2.json",
+      "audio_features_file": "mock_audio_features_playlist_2.json"
+    },
+    {
+      "id": "playlist_3",
+      "name": "Kokosowe Klasyki (Demo)",
+      "images": [{ "url": "data/mock_cover_playlist_3.jpeg" }],
+      "tracks_data_file": "mock_tracks_playlist_3.json",
+      "audio_features_file": "mock_audio_features_playlist_3.json"
+    },
+    {
+      "id": "playlist_4",
+      "name": "Smutne Nuty (Demo)",
+      "images": [{ "url": "data/mock_cover_playlist_4.jpeg" }],
+      "tracks_data_file": "mock_tracks_playlist_4.json",
+      "audio_features_file": "mock_audio_features_playlist_4.json"
+    }
+  ]
+}
