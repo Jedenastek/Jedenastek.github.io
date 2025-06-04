@@ -22,10 +22,7 @@ Spotify Tool to Single Page Application (SPA) umożliwiająca interakcję z serw
 
 ## Uruchomienie:
 
-**1. Online (Zalecane):**
-   -   Dostępna pod adresem: [https://jedenastek.github.io/](https://jedenastek.github.io/)
-
-**2. Lokalne:**
+**1. Lokalne:**
    1.  Sklonuj repozytorium: `git clone https://github.com/Jedenastek/Jedenastek.github.io.git`
    2.  Przejdź do folderu projektu: `cd Jedenastek.github.io`
    3.  Otwórz `index.html` za pomocą lokalnego serwera deweloperskiego (np. "Live Server" w VS Code) aby uniknąć problemów z CORS.
