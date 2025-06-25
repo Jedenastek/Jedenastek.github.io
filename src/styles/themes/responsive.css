@@ -1,0 +1,183 @@
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Mobile First Approach */
+
+/* Small screens (phones) */
+@media (max-width: 768px) {
+    .header-main-app-grid {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    #logo-container h1 {
+        font-size: 1.4em;
+    }
+
+    nav#main-nav {
+        padding: 0.3rem;
+    }
+
+    nav#main-nav button {
+        padding: 0.5rem 0.8rem;
+        margin: 0.2rem;
+        font-size: 0.8em;
+    }
+
+    main {
+        padding: 1rem;
+        margin: 1rem auto;
+    }
+
+    .cover-main-content h1 {
+        font-size: 2em;
+    }
+
+    .cover-main-content .lead {
+        font-size: 1em;
+    }
+
+    .cover-main-content .btn {
+        display: block;
+        margin: 0.5rem 0;
+        width: 100%;
+    }
+
+    /* Stack form actions vertically */
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+
+    /* Adjust list items for mobile */
+    .playlist-item,
+    .track-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    .track-main-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .track-actions {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* Mood filter buttons */
+    #mood-filter-controls {
+        text-align: center;
+    }
+
+    .mood-filter-button {
+        font-size: 0.8em;
+        padding: 0.4em 0.8em;
+    }
+
+    /* User auth controls */
+    #user-auth-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #user-info {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Medium screens (tablets) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    main {
+        max-width: 800px;
+    }
+
+    .cover-main-content h1 {
+        font-size: 2.5em;
+    }
+
+    nav#main-nav button {
+        padding: 0.6rem 1rem;
+        font-size: 0.85em;
+    }
+
+    .playlist-item,
+    .track-item {
+        align-items: center;
+    }
+}
+
+/* Large screens (desktops) */
+@media (min-width: 1025px) {
+    main {
+        max-width: 1200px;
+    }
+
+    .cover-main-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    /* Two-column layout for forms on large screens */
+    @media (min-width: 1200px) {
+        .form-large-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+    }
+}
+
+/* Print styles */
+@media print {
+    .cover-viewport-section,
+    header,
+    nav,
+    .footer,
+    .form-actions {
+        display: none;
+    }
+
+    body {
+        color: black;
+        background: white;
+    }
+
+    main {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    :root {
+        --border-color: #000000;
+        --text-color: #000000;
+        --background-color: #ffffff;
+    }
+
+    body.dark-theme {
+        --border-color: #ffffff;
+        --text-color: #ffffff;
+        --background-color: #000000;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

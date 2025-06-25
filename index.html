@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Tool by Dominik</title>
+    <link rel="stylesheet" href="src/styles/main.css">
+</head>
+<body>
+    <!-- Landing Page -->
+    <section id="landing-page" class="cover-viewport-section">
+        <div class="cover-container">
+            <header class="mb-auto">
+                <div class="align-items-center">
+                    <h3 id="title">Spotify Tool
+                        <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png" 
+                             alt="Spotify Logo" class="header-logo-small" style="max-width: 100%; height: 20px;">
+                    </h3>
+                </div>
+            </header>
+            <div class="px-3 cover-main-content"> 
+                <h1>Odkrywaj Muzykę <span class="highlight">Na Nowo</span>.</h1>
+                <p class="lead">
+                    Analizuj nastroje swoich playlist w trybie demo lub połącz się ze Spotify,
+                    aby przeglądać swoje utwory i odkrywać podobną muzykę dzięki Last.fm.
+                </p>
+                <p class="lead">
+                    <button id="enterAppButton" class="btn btn-lg btn-light">Wejdź (Demo)</button>
+                    <button id="enterSpotifyAppButtonLandingPage" class="btn btn-lg btn-light">Połącz z Spotify</button> 
+                </p>
+                 <p class="landing-note-cover">Pełna funkcjonalność po połączeniu z kontem Spotify.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Application -->
+    <div id="main-app-content" style="display:none;">
+        <header>
+            <div class="header-main-app-grid">
+                <div id="logo-container">
+                    <h1><img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_Black.png" 
+                            alt="Spotify Logo" class="header-logo-large" style="max-width: 100%; height: 20px;"> Tool</h1>
+                    <span id="demo-mode-indicator"></span>
+                </div>
+                <div id="user-auth-controls">
+                    <div id="user-info" style="display:none;">
+                        <span id="user-name"></span>
+                        <img id="user-avatar" src="src/data/mock_cover_playlist_1.jpeg" alt="Avatar">
+                        <button id="logout-button">Wyloguj</button>
+                    </div>
+                    <div id="login-buttons">
+                        <button id="enterSpotifyAppButtonHeader">Zaloguj przez Spotify</button> 
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <nav id="main-nav">
+            <button class="nav-button active" id="playlistsViewButton" data-section="playlistsView">Playlisty</button>
+            <button class="nav-button" id="userStatsViewButton" data-section="userStatsView">Moje Statystyki</button>
+            <button class="nav-button" id="settingsViewButton" data-section="settingsView">Ustawienia</button>
+            <button class="nav-button" id="contactFormViewButton" data-section="contactFormView">Kontakt</button>
+            <button class="nav-button" id="aboutViewButton" data-section="aboutView">O Aplikacji</button>
+        </nav>
+    
+        <main>
+            <div id="view-container">
+                <!-- Playlists View -->
+                <section id="playlistsView" class="view active-view">
+                    <h2>Twoje Playlisty</h2>
+                    <ul id="playlist-list-container"><li>Ładowanie playlist...</li></ul>
+                </section>
+    
+                <!-- Tracks View -->
+                <section id="tracksView" class="view">
+                    <button id="back-to-playlists">← Wróć do playlist</button>
+                    <h2 id="current-playlist-name">Utwory</h2>
+                    <div id="mood-filter-controls" style="display: none;">
+                        Filtruj nastrój (Demo):
+                        <button class="mood-filter-button active" data-mood="all">Wszystkie</button>
+                        <button class="mood-filter-button" data-mood="energetic">Energetyczne</button>
+                        <button class="mood-filter-button" data-mood="happy">Radosne</button>
+                        <button class="mood-filter-button" data-mood="sad">Smutne</button>
+                        <button class="mood-filter-button" data-mood="relax">Relaksujące</button>
+                        <button class="mood-filter-button" data-mood="intense">Intensywne</button>
+                        <button class="mood-filter-button" data-mood="focus">Do skupienia</button>
+                        <button class="mood-filter-button" data-mood="neutral">Neutralne</button>
+                    </div>
+                    <ul id="track-list-container"></ul>
+                </section>
+
+                <!-- Recommendations View -->
+                <section id="recommendationsView" class="view">
+                    <h2>Podobne Utwory (Last.fm)</h2>
+                    <button id="backToPlaylistTracksButton">← Wróć do Utworów Playlisty</button>
+                    <ul id="recommendation-list-container"></ul>
+                </section>
+
+                <!-- User Stats View -->
+                <section id="userStatsView" class="view">
+                    <h2>Moje Statystyki Spotify</h2>
+                    <div id="top-artists-container">
+                        <h3>Twoi Top Artyści (ostatnie 6 miesięcy)</h3>
+                        <ul id="top-artists-list"></ul>
+                    </div>
+                    <div id="top-tracks-container">
+                        <h3>Twoje Top Utwory (ostatnie 6 miesięcy)</h3>
+                        <ul id="top-tracks-list"></ul>
+                    </div>
+                    <div id="recently-played-container">
+                        <h3>Ostatnio Odtwarzane</h3>
+                        <ul id="recently-played-list"></ul>
+                    </div>
+                </section>
+    
+                <!-- Settings View -->
+                <section id="settingsView" class="view">
+                    <h2>Ustawienia Aplikacji</h2>
+                    <form id="app-settings-form" novalidate>
+                        <fieldset>
+                            <legend>Preferencje Ogólne</legend>
+                            <div>
+                                <label for="formUserName">Nazwa wyświetlana w aplikacji:</label>
+                                <input type="text" id="formUserName" name="userName" required minlength="3" maxlength="25" pattern="[a-zA-Z0-9\s]+">
+                                <span class="validation-message"></span>
+                            </div>
+                            <div>
+                                <label for="recommendationLimit">Liczba podobnych utworów z Last.fm (5-30):</label>
+                                <input type="number" id="recommendationLimit" name="recommendationLimit" min="5" max="30" value="15">
+                                <span class="validation-message"></span>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Preferencje Wyglądu</legend>
+                            <div>
+                                <p>Preferowany motyw:</p>
+                                <input type="radio" id="themeLight" name="theme" value="light" checked> <label for="themeLight">Jasny</label>
+                                <input type="radio" id="themeDark" name="theme" value="dark"> <label for="themeDark">Ciemny</label>
+                            </div>
+                             <div>
+                                <label for="accentColor">Kolor Akcentu Głównego:</label>
+                                <input type="color" id="accentColor" name="accentColor" value="#1DB954">
+                            </div>
+                            <div>
+                                <label for="fontSize">Rozmiar czcionki interfejsu:</label>
+                                <select id="fontSize" name="fontSize">
+                                    <option value="small">Mała</option>
+                                    <option value="medium" selected>Średnia</option>
+                                    <option value="large">Duża</option>
+                                </select>
+                            </div>
+                        </fieldset>
+                        <div class="form-actions">
+                            <button type="submit" id="save-app-settings-button">Zapisz Ustawienia</button>
+                            <button type="reset" id="reset-app-settings-button">Przywróć Domyślne</button>
+                        </div>
+                    </form>
+                    <div id="app-settings-feedback" class="feedback-message"></div>
+                </section>
+
+                <!-- Contact Form View -->
+                <section id="contactFormView" class="view">
+                    <h2>Formularz Kontaktowy</h2>
+                    <form id="contact-message-form" novalidate>
+                        <fieldset>
+                            <legend>Twoje Dane</legend>
+                            <div>
+                                <label for="contactName">Imię/Nick (opcjonalnie):</label>
+                                <input type="text" id="contactName" name="contactName" maxlength="50">
+                            </div>
+                            <div>
+                                <label for="contactEmail">Twój adres e-mail (wymagany do odpowiedzi):</label>
+                                <input type="email" id="contactEmail" name="contactEmail" required placeholder="np. jan.kowalski@example.com">
+                                <span class="validation-message"></span>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Twoja Wiadomość</legend>
+                            <div>
+                                <label for="messageSubject">Temat wiadomości:</label>
+                                <select id="messageSubject" name="messageSubject" required>
+                                    <option value="">-- Wybierz temat --</option>
+                                    <option value="feedback">Opinia o aplikacji</option>
+                                    <option value="bug_report">Zgłoszenie błędu</option>
+                                    <option value="feature_request">Sugestia nowej funkcji</option>
+                                    <option value="general_inquiry">Zapytanie ogólne</option>
+                                    <option value="other">Inne (opisz poniżej)</option>
+                                </select>
+                                <span class="validation-message"></span>
+                            </div>
+                            <div id="otherSubjectContainer" style="display:none; margin-top:0.5rem;">
+                                <label for="otherSubjectText">Inny temat:</label>
+                                <input type="text" id="otherSubjectText" name="otherSubjectText" maxlength="100">
+                                <span class="validation-message"></span>
+                            </div>
+                            <div>
+                                <label for="userMessage">Treść wiadomości (max 1000 znaków):</label>
+                                <textarea id="userMessage" name="userMessage" rows="5" maxlength="1000" required></textarea>
+                                <div id="charCount" class="char-counter">0/1000</div>
+                                <span class="validation-message"></span>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="agreeToTerms" name="agreeToTerms" required>
+                                <label for="agreeToTerms" class="checkbox-label">Zgadzam się na przetwarzanie moich danych (symulacja).</label>
+                                <span class="validation-message"></span>
+                            </div>
+                        </fieldset>
+                        <div class="form-actions">
+                            <button type="submit" id="send-message-button">Wyślij Wiadomość (Symulacja)</button>
+                            <button type="reset" id="reset-contact-form-button">Wyczyść Formularz</button>
+                        </div>
+                    </form>
+                    <div id="contact-form-feedback" class="feedback-message"></div>
+                </section>
+    
+                <!-- About View -->
+                <section id="aboutView" class="view">
+                    <h2>O Aplikacji</h2>
+                    <div id="about-app-content"><p>Ładowanie informacji...</p></div>
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <footer class="footer">
+        <p>© 2024 Spotify Tool - Projekt Końcowy</p>
+        <p>Autor: Dominik Długołencki</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/spotify-web-api-js/src/spotify-web-api.js"></script>
+    <script src="src/scripts/config/config.js"></script>
+    <script src="src/scripts/utils/state.js"></script>
+    <script src="src/scripts/api/spotify.js"></script>
+    <script src="src/scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+/* ============================================
+   VIEWS & UI COMPONENTS STYLES
+   ============================================ */
+
+/* View Management */
+.view {
+    display: none;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.view.active-view {
+    display: block;
+}
+
+/* Lists */
+#playlist-list-container li,
+#track-list-container li,
+#recommendation-list-container li,
+#top-artists-list li,
+#top-tracks-list li,
+#recently-played-list li {
+    background-color: var(--container-background);
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+#playlist-list-container li:hover,
+#track-list-container li:hover,
+#recommendation-list-container li:hover {
+    background-color: var(--hover-background);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Playlist Items */
+.playlist-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.playlist-cover {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.playlist-info h3 {
+    margin: 0 0 0.25rem 0;
+    color: var(--text-color);
+    font-size: 1.1rem;
+}
+
+.playlist-info p {
+    margin: 0;
+    color: var(--text-color);
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+/* Track Items */
+.track-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.track-main-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+}
+
+.track-cover {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.track-details h4 {
+    margin: 0 0 0.25rem 0;
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.track-details p {
+    margin: 0;
+    color: var(--text-color);
+    opacity: 0.7;
+    font-size: 0.85rem;
+}
+
+.track-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.track-actions button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    background-color: var(--primary-color);
+    color: var(--button-text-color);
+}
+
+/* Mood Tags */
+.mood-tag {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background-color: var(--primary-color);
+    color: var(--button-text-color);
+    border-radius: 12px;
+    font-size: 0.75rem;
+    margin-left: 0.5rem;
+}
+
+/* Statistics */
+.stats-container {
+    margin-bottom: 2rem;
+}
+
+.stats-container h3 {
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+/* Artist/Track Stats Items */
+.stats-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+}
+
+.stats-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.stats-info h4 {
+    margin: 0 0 0.25rem 0;
+    font-size: 0.95rem;
+}
+
+.stats-info p {
+    margin: 0;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.stats-rank {
+    margin-left: auto;
+    font-weight: bold;
+    color: var(--primary-color);
+    min-width: 30px;
+    text-align: center;
+}
+
+/* Loading States */
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.loading::after {
+    content: '...';
+    animation: loading-dots 1.5s infinite;
+}
+
+@keyframes loading-dots {
+    0%, 20% { content: ''; }
+    40% { content: '.'; }
+    60% { content: '..'; }
+    80%, 100% { content: '...'; }
+}
+
+/* Empty States */
+.empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-color);
+    opacity: 0.6;
+}
+
+.empty-state h3 {
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* Utility Classes */
+.mb-auto { margin-bottom: auto; }
+.px-3 { padding-left: 1rem; padding-right: 1rem; }
+.align-items-center { display: flex; align-items: center; }
