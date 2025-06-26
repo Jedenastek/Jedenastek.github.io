@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotify Tool by Dominik</title>
-    <link rel="stylesheet" href="src/styles/main.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Landing Page -->
     <section id="landing-page" class="cover-viewport-section">
         <div class="cover-container">
             <header class="mb-auto">
@@ -33,7 +32,6 @@
         </div>
     </section>
 
-    <!-- Main Application -->
     <div id="main-app-content" style="display:none;">
         <header>
             <div class="header-main-app-grid">
@@ -45,7 +43,7 @@
                 <div id="user-auth-controls">
                     <div id="user-info" style="display:none;">
                         <span id="user-name"></span>
-                        <img id="user-avatar" src="src/data/mock_cover_playlist_1.jpeg" alt="Avatar">
+                        <img id="user-avatar" src="data/mock_cover_playlist_1.jpeg" alt="Avatar">
                         <button id="logout-button">Wyloguj</button>
                     </div>
                     <div id="login-buttons">
@@ -54,7 +52,6 @@
                 </div>
             </div>
         </header>
-        
         <nav id="main-nav">
             <button class="nav-button active" id="playlistsViewButton" data-section="playlistsView">Playlisty</button>
             <button class="nav-button" id="userStatsViewButton" data-section="userStatsView">Moje Statystyki</button>
@@ -65,13 +62,11 @@
     
         <main>
             <div id="view-container">
-                <!-- Playlists View -->
                 <section id="playlistsView" class="view active-view">
                     <h2>Twoje Playlisty</h2>
                     <ul id="playlist-list-container"><li>Ładowanie playlist...</li></ul>
                 </section>
     
-                <!-- Tracks View -->
                 <section id="tracksView" class="view">
                     <button id="back-to-playlists">← Wróć do playlist</button>
                     <h2 id="current-playlist-name">Utwory</h2>
@@ -89,14 +84,12 @@
                     <ul id="track-list-container"></ul>
                 </section>
 
-                <!-- Recommendations View -->
                 <section id="recommendationsView" class="view">
                     <h2>Podobne Utwory (Last.fm)</h2>
                     <button id="backToPlaylistTracksButton">← Wróć do Utworów Playlisty</button>
                     <ul id="recommendation-list-container"></ul>
                 </section>
 
-                <!-- User Stats View -->
                 <section id="userStatsView" class="view">
                     <h2>Moje Statystyki Spotify</h2>
                     <div id="top-artists-container">
@@ -113,7 +106,6 @@
                     </div>
                 </section>
     
-                <!-- Settings View -->
                 <section id="settingsView" class="view">
                     <h2>Ustawienia Aplikacji</h2>
                     <form id="app-settings-form" novalidate>
@@ -158,7 +150,6 @@
                     <div id="app-settings-feedback" class="feedback-message"></div>
                 </section>
 
-                <!-- Contact Form View -->
                 <section id="contactFormView" class="view">
                     <h2>Formularz Kontaktowy</h2>
                     <form id="contact-message-form" novalidate>
@@ -213,7 +204,6 @@
                     <div id="contact-form-feedback" class="feedback-message"></div>
                 </section>
     
-                <!-- About View -->
                 <section id="aboutView" class="view">
                     <h2>O Aplikacji</h2>
                     <div id="about-app-content"><p>Ładowanie informacji...</p></div>
@@ -221,17 +211,12 @@
             </div>
         </main>
     </div>
-    
     <footer class="footer">
-        <p>© 2024 Spotify Tool - Projekt Końcowy</p>
+        <p>© 2025 Spotify Tool - Projekt Końcowy</p>
         <p>Autor: Dominik Długołencki</p>
     </footer>
 
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/spotify-web-api-js/src/spotify-web-api.js"></script>
-    <script src="src/scripts/config/config.js"></script>
-    <script src="src/scripts/utils/state.js"></script>
-    <script src="src/scripts/api/spotify.js"></script>
-    <script src="src/scripts/main.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

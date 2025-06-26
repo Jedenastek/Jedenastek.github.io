@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const SPOTIFY_CLIENT_ID = 'd507e509a28740ab81b86008f5d98038';
-    const SPOTIFY_REDIRECT_URI = 'https://jedenastek.github.io/';
+    const SPOTIFY_REDIRECT_URI = 'http://127.0.0.1:5500/index.html';
     const SPOTIFY_SCOPES = [
         'user-read-private', 'user-read-email',
         'playlist-read-private', 'playlist-read-collaborative',
@@ -360,6 +360,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (targetSection) switchView(targetSection);
         });
     });
+    
     if (logoutButton) logoutButton.addEventListener('click', logoutUser);
     if (backToPlaylistsButton) backToPlaylistsButton.addEventListener('click', () => {
         appState.selectedPlaylist = null;
