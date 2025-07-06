@@ -1647,3 +1647,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     initialSetup();
 });
+
