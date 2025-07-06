@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const SPOTIFY_CLIENT_ID = "d507e509a28740ab81b86008f5d98038";
   const SPOTIFY_REDIRECT_URI = "https://jedenastek.github.io/";
+  //prawidłowy callback uri
   const SPOTIFY_SCOPES = [
     "user-read-private",
     "user-read-email",
